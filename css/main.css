@@ -18,4 +18,12 @@ main {
   justify-content: center;
   align-items: center;
   border: 2.5px solid #d3d6da;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.timer {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 5px;
 }
