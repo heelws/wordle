@@ -10,6 +10,13 @@ function apptStart() {
     document.body.appendChild(div);
   };
 
+  const displayLoosegame = () => {
+    const div = document.createElement("div");
+    div.innerText = "틀렸습니다ㅠ";
+    div.classList.add("wrong");
+    document.body.appendChild(div);
+  };
+
   const nextLine = () => {
     if (attempts === 6) return gameover();
     attempts += 1;
@@ -72,6 +79,7 @@ function apptStart() {
     }
   };
 
+  window.addEventListener("keydown", handleKeydown);
   const startTimer = () => {
     const 시작_시간 = new Date();
 
@@ -88,8 +96,6 @@ function apptStart() {
   };
 
   startTimer();
-
-  window.addEventListener("keydown", handleKeydown);
 }
 
 apptStart();
