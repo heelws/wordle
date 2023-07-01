@@ -1,5 +1,3 @@
-const 정답 = "APPLE";
-
 let attempts = 0;
 let index = 0;
 let timer;
@@ -8,8 +6,7 @@ function apptStart() {
   const displayGameover = () => {
     const div = document.createElement("div");
     div.innerText = "게임이 종료됐습니다.";
-    div.style =
-      "display:flex; justify-content:center; align-items:center;position:absolute; top:30vh; left:44.7vw; background-color:white; width:200px;height:100px;";
+    div.classList.add("end");
     document.body.appendChild(div);
   };
 
@@ -25,8 +22,12 @@ function apptStart() {
     clearInterval(timer);
   };
 
-  const handleEnterkey = () => {
+  const handleEnterkey = async () => {
     let 맞은_갯수 = 0;
+
+    const 응답 = await fetch("/answer");
+    const 정답 = await 응답.json();
+
     for (let i = 0; i < 5; i++) {
       const block = document.querySelector(
         `.board-block[data-index='${attempts}${i}']`
